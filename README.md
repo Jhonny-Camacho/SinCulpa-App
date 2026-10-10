@@ -56,3 +56,22 @@ El repositorio incluye configuración para Vercel y Netlify. En cualquiera de la
 
 En Vercel: **Add New → Project → Import Git Repository → Deploy**.
 En Netlify: **Add new project → Import an existing project → GitHub → Publish/Deploy** (los nombres pueden variar según la interfaz).
+
+## Semana gratuita, ebook y página de oferta
+
+La web incorpora un recorrido independiente de la app de 30 días:
+
+| Ruta | Contenido |
+| --- | --- |
+| `/semana/` | Página de captación y presentación del regalo |
+| `/semana/guia/` | Guía interactiva de 7 días, 35 recetas, compras semanales, agua, antojos y diario |
+| `/semana/oferta/` | Presentación del programa de 30 días por US$19 |
+| `/downloads/SinCulpa-7-dias.pdf` | Ebook compañero de 23 páginas, descargable e imprimible |
+
+El estado de la semana usa `sinculpa-week-v1` y no modifica `sinculpa-v1`. El formulario de correos y el checkout se conectan mediante enlaces HTTPS públicos (`VITE_LEAD_FORM_URL`, `VITE_CHECKOUT_URL`). Mientras no estén conectados, la página ofrece una vista previa sin recoger correos y no permite cobrar. Se han probado las ramas configuradas con proveedores simulados, no registros ni compras reales.
+
+Las instrucciones para activar los proveedores y preparar consentimiento, entrega y acceso están en [docs/ACTIVAR-CAPTACION-Y-VENTAS.md](docs/ACTIVAR-CAPTACION-Y-VENTAS.md). Los ocho textos de entrega y seguimiento están en [docs/SECUENCIA-DE-CORREOS.md](docs/SECUENCIA-DE-CORREOS.md); no están enviados ni programados. La app original continúa siendo pública: el checkout no añade autenticación ni protección de pago.
+
+El PDF ya está generado y se incluye en el despliegue. Para regenerarlo, usa `node scripts/generate-ebook.mjs` con Chromium instalado. `VITE_PUBLIC_SITE_URL` permite incorporar enlaces absolutos a tu dominio. No se necesita Chromium para compilar o desplegar el sitio en Vercel. Las variables `VITE_` son públicas; nunca pongas claves API ni secretos en ellas.
+
+Código de la semana: `src/week/`. Entradas HTML: `semana/`, `semana/guia/` y `semana/oferta/`. Vite compila las cuatro páginas, incluida la aplicación original.
