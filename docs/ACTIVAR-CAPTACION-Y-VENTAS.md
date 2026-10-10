@@ -46,6 +46,6 @@ El PDF se entrega como archivo ya generado, por lo que Vercel no necesita instal
 VITE_PUBLIC_SITE_URL=https://tu-dominio node scripts/generate-ebook.mjs
 ```
 
-Requiere Chromium (`/usr/bin/chromium` por defecto, modificable con `CHROMIUM_PATH`). Si el dominio no está configurado, el PDF invita a usar el enlace recibido y no contiene direcciones inventadas. La guía web siempre enlaza correctamente sus páginas con rutas relativas al sitio.
+Requiere Chromium (`/usr/bin/chromium` por defecto, modificable con `CHROMIUM_PATH`). El generador usa por defecto el enlace de Vercel compartido por el propietario: `https://sin-culpa-app-git-main-jhonnys-projects-c129344f.vercel.app`. Puedes reemplazarlo con `VITE_PUBLIC_SITE_URL` al regenerar el PDF. La guía web siempre enlaza correctamente sus páginas con rutas relativas al sitio.
 
 Cambiar variables en Vercel requiere un nuevo despliegue. Cambiar el dominio del PDF requiere regenerar y subir el PDF actualizado. El sitio todavía no tiene analítica ni almacenamiento de leads propio; usa las métricas de formularios y ventas de tus proveedores.

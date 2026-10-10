@@ -8,7 +8,7 @@ import {mealLabels} from '../src/menus.js';
 import {cravingAdvice} from '../src/data.js';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let site=process.env.VITE_PUBLIC_SITE_URL||'';try{const u=new URL(site);site=u.protocol==='https:'&&!u.username&&!u.password?u.origin:'';}catch{site='';}
+let site=process.env.VITE_PUBLIC_SITE_URL||'https://sin-culpa-app-git-main-jhonnys-projects-c129344f.vercel.app';try{const u=new URL(site);site=u.protocol==='https:'&&!u.username&&!u.password?u.origin:'';}catch{site='';}
 const asset=path=>'/'+path;
 const font='/font.woff2';
 const heading=(over,title)=>`<span class="overline">${over}</span><h1>${title}</h1>`;
